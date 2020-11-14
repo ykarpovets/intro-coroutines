@@ -14,6 +14,14 @@ object MockGithubService : GitHubService {
         return Calls.response(reposMap.getValue(repo).users)
     }
 
+    override suspend fun getOrgRepos(org: String): Response<List<Repo>> {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getRepoContributors(owner: String, repo: String): Response<List<User>> {
+        TODO("Not yet implemented")
+    }
+
 /*
     // Uncomment the following implementations after adding these methods to GitHubService:
 
