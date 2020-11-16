@@ -35,14 +35,14 @@ inline fun <T> Call<T>.onResponse(crossinline responseCallback: (Response<T>) ->
     onComplete({ responseCallback(it)}, { log.error("Call failed", it)})
 }
 
-inline fun <T> Call<T>.onComplete(crossinline responseCallback: (Response<T>) -> Unit, crossinline failedCallback: (Throwable) -> Unit) {
+inline fun <T> Call<T>.onComplete(crossinline responseCallback: (Response<T>) -> Unit, crossinline failureCallback: (Throwable) -> Unit) {
     enqueue(object : Callback<T> {
         override fun onResponse(call: Call<T>, response: Response<T>) {
             responseCallback(response)
         }
 
         override fun onFailure(call: Call<T>, t: Throwable) {
-            failedCallback(t)
+            failureCallback(t)
         }
     })
 }

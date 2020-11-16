@@ -15,17 +15,6 @@ object MockGithubService : GitHubService {
     }
 
     override suspend fun getOrgRepos(org: String): Response<List<Repo>> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun getRepoContributors(owner: String, repo: String): Response<List<User>> {
-        TODO("Not yet implemented")
-    }
-
-/*
-    // Uncomment the following implementations after adding these methods to GitHubService:
-
-    override suspend fun getOrgRepos(org: String): Response<List<Repo>> {
         delay(reposDelay)
         return Response.success(repos)
     }
@@ -35,5 +24,4 @@ object MockGithubService : GitHubService {
         delay(testRepo.delay)
         return Response.success(testRepo.users)
     }
-*/
 }
